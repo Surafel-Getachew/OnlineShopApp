@@ -13,8 +13,7 @@ class ProductTitleWithImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -24,8 +23,10 @@ class ProductTitleWithImage extends StatelessWidget {
           ),
           Text(
             product.title,
-            style: Theme.of(context).textTheme.headline4.copyWith(
-                color: Colors.white, fontWeight: FontWeight.bold),
+            style: Theme.of(context)
+                .textTheme
+                .headline4
+                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           // SizedBox(height: kDefaultPadding),
           Row(
@@ -36,12 +37,8 @@ class ProductTitleWithImage extends StatelessWidget {
                     TextSpan(text: "Price\n"),
                     TextSpan(
                       text: "\$${product.price}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          .copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.headline4.copyWith(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -50,7 +47,10 @@ class ProductTitleWithImage extends StatelessWidget {
                 width: kDefaultPadding,
               ),
               Expanded(
-                child: Image.asset(product.image, fit: BoxFit.fill),
+                child: Hero(
+                  tag: "${product.id}",
+                  child: Image.asset(product.image, fit: BoxFit.fill),
+                ),
               ),
             ],
           )
